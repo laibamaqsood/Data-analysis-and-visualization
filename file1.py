@@ -1,11 +1,5 @@
-# import pandas
-# import subprocess
 
-# sra_accession = "SRR13477610"
-# subprocess.run(["fastq-dump", sra_accession])
-
-
-
+Extraction of specified columns
 
 # Replace 'your_file.csv' with the actual path to your CSV file
 
@@ -38,5 +32,6 @@ else:
 
 # Confirm the working directory
 print("Current working directory:", os.getcwd())
+
 
 
