@@ -32,6 +32,25 @@ else:
 
 # Confirm the working directory
 print("Current working directory:", os.getcwd())
+# cleaning of the file
+import pandas as pd
 
+# Load the data file
+df3 = pd.read_csv('gastnewdown.csv')
 
+print(df3)
+
+# Remove rows where the 'Description' column starts with 'uncharacterised' or 'uncharacterized'
+df3_cleaned = df3[~df3['Description'].str.contains(r'^\s*uncharacteri[sz]ed', case=False, na=False)]
+
+# Save the cleaned DataFrame to a new CSV file
+df3_cleaned.to_csv('gastnewdown_cleaned.csv', index=False)
+
+print(df3_cleaned.head())
+
+# Remove duplicate rows based on 'Gene.symbol'
+data_no_duplicates = df3.drop_duplicates(subset='Gene.title', keep='first')
+
+# # # Save the DataFrame without duplicates back to the original file
+data_no_duplicates.to_csv('gastnewk_withoutdup.csv', index=True)
 
